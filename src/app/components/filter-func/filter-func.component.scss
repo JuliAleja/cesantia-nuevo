@@ -1,0 +1,81 @@
+.p-panel .p-panel-header {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #0083FE !important;
+  color: white !important;
+}
+
+.p-panel-titlebar {
+  border-radius: 10px 10px 0px 0px !important;
+  background-color: #0083FE !important;
+  color: white !important;
+  font-size: 14px !important;
+  text-align: center !important;
+}
+
+.pnl-pt .p-panel-content {
+  padding: 0px 0.5rem 0px 0.5rem;
+  padding-top: 0.01em;
+}
+
+.pnl-pt .p-panel-titlebar {
+  padding: 5px !important;
+}
+
+.steps-pnl .p-panel-titlebar {
+  background-color: #f9f9f9 !important;
+  text-align: left !important;
+  color: #333333 !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  font-family: var(--font-family-1) !important;
+}
+
+.steps-basic .p-panel-titlebar {
+  background-color: var(--color-17) !important;
+  text-align: center !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  font-family: var(--font-family-1) !important;
+}
+
+.pnl-basic .p-panel-titlebar {
+  text-align: left !important;
+  font-size: 15px !important;
+  font-family: var(--font-family-1) !important;
+}
+
+.pnl-b1 .p-panel-content {
+  border-top: 1px solid #c8c8c8 !important;
+}
+
+.card-panel-header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 40px;
+  background-color: var(--color-6);
+  padding: 10px;
+  font-weight: bold;
+}
+
+.card-panel {
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.card-panel-header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 40px;
+  background-color: var(--color-6);
+  padding: 10px;
+  font-weight: bold;
+}
+
+.card-panel-header__title {
+  color: var(--color-13);
+  font-size: var(--font-size-6);
+  font-family: var(--font-family-1);
+  font-weight: 400;
+}

@@ -1,0 +1,76 @@
+<div class="container">
+  <h2 class="text-center my-4 text--primary" >Factores</h2>
+  <form class="container" [formGroup]="formFactory" #formDirective="ngForm"  (ngSubmit)="submit(formFactory ,formDirective)">
+    <div class="row">
+      <div class="col-4">
+        <label  class="font-bold block m-2">Concepto</label>
+        <p-dropdown
+          [options]="allConcept"
+          formControlName="concepto"
+          optionLabel="concepto" optionValue="cpt"
+          [styleClass]="this.formFactory.get('concepto')?.invalid && (this.formFactory.get('concepto')?.dirty || this.formFactory.get('concepto')?.touched)?'p-dropdown requerido':'p-dropdown '"
+          [filter]="true"
+          filterBy="label"
+          [showClear]="true"
+          placeholder="Seleccionar concepto"
+        >
+        </p-dropdown>
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Valor</label>
+        <p-inputNumber  formControlName="valor" mode="currency" inputId="currency-cop" currency="COP"
+        placeholder="Valor" class="w-full"
+        [ngClass]="{'ng-invalid ng-dirty':this.formFactory.get('valor')?.errors?.['required']}"
+        ></p-inputNumber>
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Factor</label>
+        <p-inputNumber  formControlName="factor" mode="currency" inputId="currency-cop" currency="COP"
+        placeholder="Factor" class="w-full"
+        [ngClass]="{'ng-invalid ng-dirty':this.formFactory.get('factor')?.errors?.['required']}"
+        ></p-inputNumber>
+      </div>
+
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <button mat-raised-button color="primary" aria-label="Guardar">
+        <mat-icon>check_circle_outline</mat-icon> Guardar
+      </button>
+    </div>
+  </form>
+</div>
+<br>
+
+<div class="container">
+  <table class="table  table-hover table-bordered table-content">
+    <thead>
+      <tr class="center-align">
+        <th>Concepto</th>
+        <th>Valor</th>
+        <th>Factor</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let factory of Factorylist" class="center-align">
+        <td>{{ factory.concepto }}</td>
+        <td>{{ factory.valor  |  currency:"COP" }}</td>
+        <td>{{ factory.factor  |  currency:"COP"}}</td>
+
+        <td>
+          <a mat-raised-button color="primary" ><mat-icon>edit</mat-icon></a>
+        </td>
+      </tr>
+      <tr>
+        <td *ngIf="Factorylist.length == 0" colspan="6">No se encuentra registros</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr >
+        <td  colspan="2" >Salario Base</td>
+        <td colspan="2">{{total | currency:"COP" }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+

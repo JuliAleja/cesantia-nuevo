@@ -1,0 +1,240 @@
+<div class="container">
+  <h2 class="text-center my-4 text--primary">Radicado</h2>
+  <form
+    class="container"
+    [formGroup]="formSettled"
+    #formDirective="ngForm"
+    (ngSubmit)="submit(formSettled, formDirective)"
+  >
+    <div class="row">
+      <div class="col-4">
+        <label class="font-bold block m-2">Fecha</label>
+        <br />
+        <p-calendar
+          ShowButtonBar="true"
+          placeholder="Seleccionar"
+          [readonlyInput]="true"
+          inputStyleClass="w-full"
+          [ngStyle]="{ width: '10px ' }"
+          formControlName="fecha"
+        ></p-calendar>
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Numero</label>
+        <p-inputNumber
+          formControlName="numero"
+          mode="decimal"
+          inputId="withoutgrouping"
+          [useGrouping]="false"
+          placeholder="Numero"
+          class="w-full"
+          [ngClass]="{'ng-invalid ng-dirty':this.formSettled.get('numero')?.errors?.['required']}"
+        ></p-inputNumber>
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Valor</label>
+        <p-inputNumber
+          formControlName="valor"
+          mode="currency"
+          inputId="currency-cop"
+          currency="COP"
+          placeholder="Valor"
+          class="w-full"
+          [ngClass]="{'ng-invalid ng-dirty':this.formSettled.get('valor')?.errors?.['required']}"
+        ></p-inputNumber>
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Tipo</label>
+        <p-dropdown
+          [options]="allTipo"
+          formControlName="tipo"
+          optionLabel="Descripcion"
+          optionValue="tip_cesa"
+          [styleClass]="
+            this.formSettled.get('tipo')?.invalid &&
+            (this.formSettled.get('tipo')?.dirty ||
+              this.formSettled.get('tipo')?.touched)
+              ? 'p-dropdown requerido'
+              : 'p-dropdown '
+          "
+          [filter]="true"
+          filterBy="label"
+          [showClear]="true"
+          placeholder="Seleccionar tipo"
+        >
+        </p-dropdown>
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Modo</label>
+        <p-dropdown
+          [options]="allModo"
+          formControlName="modo"
+          optionLabel="modoName"
+          optionValue="modoName"
+          [styleClass]="
+            this.formSettled.get('modo')?.invalid &&
+            (this.formSettled.get('modo')?.dirty ||
+              this.formSettled.get('modo')?.touched)
+              ? 'p-dropdown requerido'
+              : 'p-dropdown '
+          "
+          [filter]="true"
+          filterBy="label"
+          [showClear]="true"
+          placeholder="Seleccionar tipo"
+        >
+        </p-dropdown>
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Corte</label>
+        <br />
+        <p-calendar
+          ShowButtonBar="true"
+          placeholder="Seleccionar"
+          [readonlyInput]="true"
+          inputStyleClass="w-full"
+          [ngStyle]="{ width: '10px ' }"
+          formControlName="corte"
+        ></p-calendar>
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Institución</label>
+        <p-dropdown
+          [options]="allInstitucion"
+          formControlName="institucion"
+          optionLabel="institucion"
+          optionValue="ins_nit"
+          [styleClass]="
+            this.formSettled.get('institucion')?.invalid &&
+            (this.formSettled.get('institucion')?.dirty ||
+              this.formSettled.get('institucion')?.touched)
+              ? 'p-dropdown requerido'
+              : 'p-dropdown '
+          "
+          [filter]="true"
+          filterBy="label"
+          [showClear]="true"
+          placeholder="Seleccionar institucion"
+        >
+        </p-dropdown>
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Clase</label>
+        <p-dropdown
+          [options]="allClase"
+          formControlName="clase"
+          optionLabel="claseName"
+          optionValue="claseName"
+          [styleClass]="
+            this.formSettled.get('clase')?.invalid &&
+            (this.formSettled.get('clase')?.dirty ||
+              this.formSettled.get('clase')?.touched)
+              ? 'p-dropdown requerido'
+              : 'p-dropdown '
+          "
+          [filter]="true"
+          filterBy="label"
+          [showClear]="true"
+          placeholder="Seleccionar clase"
+        >
+        </p-dropdown>
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Otro</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="otro"
+          placeholder="Otro"
+          class="w-full m-2"
+          [ngClass]="{'ng-invalid ng-dirty':this.formSettled.get('otro')?.errors?.['required']}"
+        />
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Funcionario</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="funcionario"
+          placeholder="Funcionario"
+          class="w-full m-2"
+          [ngClass]="{'ng-invalid ng-dirty':this.formSettled.get('funcionario')?.errors?.['required']}"
+        />
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Cargo</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="cargo"
+          placeholder="Cargo"
+          class="w-full m-2"
+          [ngClass]="{'ng-invalid ng-dirty':this.formSettled.get('cargo')?.errors?.['required']}"
+        />
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Entidad</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="entidad"
+          placeholder="Entidad"
+          class="w-full m-2"
+          [ngClass]="{'ng-invalid ng-dirty':this.formSettled.get('entidad')?.errors?.['required']}"
+        />
+      </div>
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <button mat-raised-button color="primary" aria-label="Guardar">
+        <mat-icon>check_circle_outline</mat-icon> Guardar
+      </button>
+    </div>
+  </form>
+</div>
+<br />
+<div class="container">
+  <table class="table table-striped table-hover table-bordered table-content">
+    <thead>
+      <tr class="center-align">
+        <th>Fecha</th>
+        <th>#</th>
+        <th>Valor</th>
+        <th>Tipo</th>
+        <th>Modo</th>
+        <th>Corte</th>
+        <th>Institución</th>
+        <th>Clase</th>
+        <th>Otro</th>
+        <th>Funcionario</th>
+        <th>Cargo</th>
+        <th>Entidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let settled of Settledlist" class="center-align">
+        <td>{{ settled.fecha | date : "dd/MM/yyyy" }}</td>
+        <td>{{ settled.numero }}</td>
+        <td>{{ settled.valor | currency : "COP" }}</td>
+        <td>{{ settled.tipo }}</td>
+        <td>{{ settled.modo }}</td>
+        <td>{{ settled.corte | date : "dd/MM/yyyy" }}</td>
+        <td>{{ settled.institucion }}</td>
+        <td>{{ settled.clase }}</td>
+        <td>{{ settled.otro }}</td>
+        <td>{{ settled.funcionario }}</td>
+        <td>{{ settled.cargo }}</td>
+        <td>{{ settled.entidad }}</td>
+
+        <td>
+          <a mat-raised-button color="primary"><mat-icon>edit</mat-icon></a>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-center" *ngIf="Settledlist.length == 0" colspan="13">
+          No se encuentra registros
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

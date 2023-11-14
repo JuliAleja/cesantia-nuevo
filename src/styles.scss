@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.w-full{
+  width: 100%;
+}
+.p-dropdown {
+  width: 100%; // Ajusta el ancho según tus necesidades
+  .p-dropdown-label {
+    // Estilos para el label
+    display: inline-block;
+
+  }
+
+  .p-dropdown-trigger {
+    cursor: pointer;
+
+    &:hover {
+      // Estilos para el hover
+      background-color: #3366cc;
+      color: #ffffff; // Cambia el color del texto al hacer hover
+    }
+  }
+
+  .p-dropdown-items-wrapper {
+    .p-dropdown-item {
+      // Estilos para cada opción del dropdown
+      &:hover {
+        background-color: #3366cc;
+        color: #ffffff; // Cambia el color del texto al hacer hover
+      }
+    }
+  }
+}
+.calendar-app {
+  border-radius: 15px !important;
+  border: 0px !important;
+  width: 100% !important;
+  padding-left: 15px !important;
+  background-color: #f2f2f2 !important;
+}
+
+.calendar-app:focus {
+  box-shadow: 0 0 0px !important;
+}
+
+.text--primary{
+  color: #3366cc;
+
+}
+.p-panel .p-panel-header {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #3366cc !important;
+  color: white !important;
+}
+.p-panel .p-panel-header .p-panel-header-icon {
+  width: 2rem;
+  height: 2rem;
+  color: white !important;
+  border: 0 none;
+  background: transparent;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}

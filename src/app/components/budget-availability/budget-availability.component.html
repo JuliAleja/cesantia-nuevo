@@ -1,0 +1,74 @@
+<div class="container">
+  <h2 class="text-center my-4 text--primary" >Disponibilidad Presupuestal</h2>
+  <form class="container" [formGroup]="formBudget" #formDirective="ngForm" >
+    <h4 class="text-center my-4 text--primary" >Radicado de la Solicitud</h4>
+    <div class="row">
+      <div class="col-6">
+        <label class="font-bold block m-2">Fecha</label>
+        <br />
+        <p-calendar
+          ShowButtonBar="true"
+          placeholder="Seleccionar"
+          [readonlyInput]="true"
+          inputStyleClass="w-full"
+          [ngStyle]="{ width: '10px ' }"
+          formControlName="fecha_r"
+        ></p-calendar>
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Numero</label>
+        <p-inputNumber
+          formControlName="numero_r"
+          mode="decimal"
+          inputId="withoutgrouping"
+          [useGrouping]="false"
+          placeholder="Numero"
+          class="w-full"
+          [ngClass]="{'ng-invalid ng-dirty':this.formBudget.get('numero_r')?.errors?.['required']}"
+        ></p-inputNumber>
+
+      </div>
+
+
+    </div>
+    <h4 class="text-center my-4 text--primary" >Disponibilidad Presupuestal</h4>
+    <div class="row">
+      <div class="col-6">
+        <label class="font-bold block m-2">Fecha</label>
+        <br />
+        <p-calendar
+          ShowButtonBar="true"
+          placeholder="Seleccionar"
+          [readonlyInput]="true"
+          inputStyleClass="w-full"
+          [ngStyle]="{ width: '10px ' }"
+          formControlName="fecha_d"
+        ></p-calendar>
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Numero</label>
+        <p-inputNumber
+          formControlName="numero_d"
+          mode="decimal"
+          inputId="withoutgrouping"
+          [useGrouping]="false"
+          placeholder="Numero"
+          class="w-full"
+          [ngClass]="{'ng-invalid ng-dirty':this.formBudget.get('numero_d')?.errors?.['required']}"
+        ></p-inputNumber>
+
+      </div>
+
+
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <button mat-raised-button color="primary" aria-label="Guardar">
+        <mat-icon>check_circle_outline</mat-icon> Guardar
+      </button>
+    </div>
+  </form>
+</div>
+<br>
+
+
+

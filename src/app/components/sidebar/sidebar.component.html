@@ -1,0 +1,114 @@
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-blue-gobernation">
+      <div
+        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+      >
+        <a
+          href="/"
+          class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        >
+          <span class="fs-5 d-none d-sm-inline">Menu</span>
+        </a>
+        <ul
+          class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+          id="menu"
+        >
+          <li class="nav-item">
+            <a routerLink="informGeneral" class="nav-link align-middle px-0">
+              <mat-icon>book</mat-icon>
+              <span class="ms-1 d-none d-sm-inline">Datos generales </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="factores" class="nav-link align-middle px-0">
+              <mat-icon>account_balance_wallet</mat-icon>
+              <span class="ms-1 d-none d-sm-inline">Factores</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="precedentes" class="nav-link align-middle px-0">
+              <mat-icon>assignment</mat-icon>
+              <span class="ms-1 d-none d-sm-inline">Precedentes</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="radicado" class="nav-link align-middle px-0">
+              <mat-icon>assignment_ind</mat-icon>
+              <span class="ms-1 d-none d-sm-inline">Radicado</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="disponibilidad-presupuestal" class="nav-link align-middle px-0">
+              <mat-icon>donut_small</mat-icon>
+              <span class="ms-1 d-none d-sm-inline">Disponibilidad Presupuestal</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="resolucion" class="nav-link align-middle px-0">
+              <mat-icon>swap_horiz</mat-icon>
+              <span class="ms-1 d-none d-sm-inline">Resolucion</span>
+            </a>
+          </li>
+        </ul>
+        <hr />
+      </div>
+    </div>
+    <div class="col  m-0 p-0">
+      <nav class="bg-blue-gobernation navbar-expand-lg shadow ">
+        <div >
+            <div class=" navbar-collapse justify-content-center">
+                <ul class="navbar-nav ">
+                  <li class="nav-item px-lg-2">
+                      <img src="../../../assets/logo-gobernacion.jpg" alt="Logo de la gobernacion">
+                  </li>
+                    <li class="nav-item  text-center text-white">
+                        <h2 class="m-0">GOBERNACION DE CUNDINAMARCA</h2>
+                        <h3>CENSATIAS DESCENTRALIZADAS</h3>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+<!--     <div class="container">
+      <h2 class="text-center my-4 text--primary" >Filtros</h2>
+      <form class="container" >
+        <div class="row">
+          <mat-form-field class="col-4">
+            <input
+              matInput
+              formControlName="cc"
+              placeholder="Cedula"
+            />
+          </mat-form-field>
+          <mat-form-field class="col-4">
+            <input
+              matInput
+              formControlName="cc"
+              placeholder="Nombre"
+            />
+          </mat-form-field>
+          <mat-form-field class="col-4">
+            <input
+              matInput
+              formControlName="cc"
+              placeholder="Apellido"
+            />
+          </mat-form-field>
+
+        </div>
+        <div class="d-flex flex-row-reverse">
+          <button mat-raised-button color="primary" aria-label="Guardar">
+            <mat-icon>check_circle_outline</mat-icon> Guardar
+          </button>
+        </div>
+      </form>
+    </div> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
+<app-footer></app-footer>

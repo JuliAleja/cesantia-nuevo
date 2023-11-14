@@ -1,0 +1,82 @@
+<div class="container">
+  <app-filter-func></app-filter-func>
+  <br>
+  <h2 class="text-center my-4 text--primary">Informacion General</h2>
+  <form class="container" [formGroup]="formInformation" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-6">
+        <label  class="font-bold block m-2">Entidades</label>
+        <p-dropdown
+          [options]="allEntidad"
+          formControlName="entidad"
+          optionLabel="Entidad" optionValue="Ent"
+          [styleClass]="f.entidad.invalid && (f.entidad.dirty || f.entidad.touched)?'p-dropdown requerido':'p-dropdown '"
+          [filter]="true"
+          filterBy="Ent"
+          [showClear]="true"
+          placeholder="Seleccionar entidad"
+        >
+        </p-dropdown>
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Municipio</label>
+        <p-dropdown
+          [options]="itemsMunicipio"
+          formControlName="municipio"
+          [styleClass]="f.municipio.invalid && (f.municipio.dirty || f.municipio.touched)?'p-dropdown requerido':'p-dropdown '"
+          [filter]="true"
+          filterBy="label"
+          [showClear]="true"
+          placeholder="Seleccionar municipio"
+        >
+        </p-dropdown>
+
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Direccion</label>
+        <input type="text" pInputText  formControlName="direccion" placeholder="Direccion" class="w-full m-2"
+        [ngClass]="{'ng-invalid ng-dirty':this.formInformation.get('direccion')?.errors?.['required']}"
+        />
+      </div>
+      <div class="col-6">
+        <label class="font-bold block m-2">Barrio</label>
+        <input type="text" pInputText  formControlName="barrio" placeholder="Barrio" class="w-full m-2"
+        [ngClass]="{'ng-invalid ng-dirty':this.formInformation.get('barrio')?.errors?.['required']}"
+        />
+      </div>
+
+      <div class="col-4">
+        <label class="font-bold block m-2">Telefono</label>
+        <input type="text" pInputText (input)="formatearTelefono($event)" formControlName="telefono" placeholder="Telefono" class="w-full m-2"
+        [ngClass]="{'ng-invalid ng-dirty':this.formInformation.get('telefono')?.errors?.['required']}"
+        />
+
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Ingreso</label>
+        <br />
+        <p-calendar
+          ShowButtonBar="true"
+          placeholder="Seleccionar"
+          inputStyleClass="w-full m-2"
+          [readonlyInput]="false"
+          [ngStyle]="{ width: '10px ' }"
+          formControlName="ingreso"
+        ></p-calendar>
+
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Dias no trabajados</label>
+        <input type="text" pInputText  formControlName="dias" placeholder="Dias no trabajados" class="w-full m-2"
+        [ngClass]="{'ng-invalid ng-dirty':this.formInformation.get('dias')?.errors?.['required']}"
+        />
+
+      </div>
+      <div class="d-flex flex-row-reverse  m-2">
+        <button mat-raised-button color="primary" aria-label="Guardar">
+          <mat-icon>check_circle_outline</mat-icon> Guardar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

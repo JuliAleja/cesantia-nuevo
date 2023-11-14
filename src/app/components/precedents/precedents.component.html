@@ -1,0 +1,120 @@
+<div class="container">
+  <h2 class="text-center my-4 text--primary">Precedentes</h2>
+  <form
+    class="container"
+    [formGroup]="formPrecedents"
+    #formDirective="ngForm"
+    (ngSubmit)="submit(formPrecedents, formDirective)"
+  >
+    <div class="row">
+      <div class="col-4">
+        <label class="font-bold block m-2">Fecha</label>
+        <br>
+        <p-calendar
+          ShowButtonBar="true"
+          placeholder="Seleccionar"
+          [readonlyInput]="true"
+          inputStyleClass="w-full"
+          [ngStyle]="{'width': '10px '}"
+          formControlName="fecha"
+        ></p-calendar>
+      </div>
+
+      <div class="col-4">
+        <label class="font-bold block m-2">Numero</label>
+        <p-inputNumber  formControlName="numero"mode="decimal" inputId="withoutgrouping" [useGrouping]="false"
+        placeholder="Numero" class="w-full"
+        [ngClass]="{'ng-invalid ng-dirty':this.formPrecedents.get('numero')?.errors?.['required']}"
+        ></p-inputNumber>
+
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Valor</label>
+        <p-inputNumber  formControlName="valor" mode="currency" inputId="currency-cop" currency="COP"
+        placeholder="Valor" class="w-full"
+        [ngClass]="{'ng-invalid ng-dirty':this.formPrecedents.get('valor')?.errors?.['required']}"
+        ></p-inputNumber>
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Modo</label>
+        <p-dropdown
+        [options]="allModo"
+        formControlName="modo"
+        optionLabel="modoName" optionValue="modoName"
+        [styleClass]="this.formPrecedents.get('modo')?.invalid && (this.formPrecedents.get('modo')?.dirty || this.formPrecedents.get('modo')?.touched)?'p-dropdown requerido':'p-dropdown '"
+        [filter]="true"
+        filterBy="label"
+        [showClear]="true"
+        placeholder="Seleccionar modo"
+      >
+      </p-dropdown>
+      </div>
+      <div class="col-4">
+        <label class="font-bold block m-2">Tipo</label>
+        <p-dropdown
+        [options]="allTipo"
+        formControlName="modo"
+        optionLabel="Descripcion" optionValue="tip_cesa"
+        [styleClass]="this.formPrecedents.get('tipo')?.invalid && (this.formPrecedents.get('tipo')?.dirty || this.formPrecedents.get('tipo')?.touched)?'p-dropdown requerido':'p-dropdown '"
+        [filter]="true"
+        filterBy="label"
+        [showClear]="true"
+        placeholder="Seleccionar tipo"
+      >
+      </p-dropdown>
+      </div>
+      <div class="col-4" >
+        <label class="font-bold block m-2">Estado</label><br>
+        <mat-slide-toggle  [color]="color"></mat-slide-toggle>
+      </div>
+
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <button mat-raised-button color="primary" aria-label="Guardar">
+        <mat-icon>check_circle_outline</mat-icon> Guardar
+      </button>
+    </div>
+  </form>
+</div>
+<br />
+
+<div class="container">
+  <table class="table table-hover table-bordered table-content">
+    <thead>
+      <tr class="center-align">
+        <th>Fecha</th>
+        <th>#</th>
+        <th>Valor</th>
+        <th>Tipo</th>
+        <th>Modo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let precedent of Precedentlist" class="center-align">
+        <td>{{ precedent.fecha | date : "dd/MM/yyyy" }}</td>
+        <td>{{ precedent.numero }}</td>
+        <td>{{ precedent.valor | currency : "COP" }}</td>
+        <td>{{ precedent.tipos!.Descripcion }}</td>
+        <!--         //<td *ngFor="let tipos of (precedent.tipos keyvalue)" > {{tipos | json}}</td>
+ -->
+        <td>{{ precedent.modo }}</td>
+
+        <td>
+          <a mat-raised-button color="primary"><mat-icon>edit</mat-icon></a>
+        </td>
+      </tr>
+      <tr>
+        <td *ngIf="Precedentlist.length == 0" colspan="6">
+          No se encuentra registros
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total</td>
+        <td colspan="4">{{ total | currency : "COP" }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
